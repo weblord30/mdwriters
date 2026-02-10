@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   const { username, password } = JSON.parse(req.body);
 
-  const adminsPath = path.join(process.cwd(), "db", "admins.json");
+  const adminsPath = path.join(process.cwd(), ".db", "admins.json");
   const admins = JSON.parse(fs.readFileSync(adminsPath, "utf-8"));
 
   const admin = admins.find(a => a.username === username);
