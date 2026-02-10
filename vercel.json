@@ -1,7 +1,6 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "routes": [
-    { "src": "/\\.db/(.*)", "status": 404 }
+    { "src": "/\\.db/(.*)", "status": 404 },
+    { "src": "/\\.db", "status": 404 }
   ]
 }
