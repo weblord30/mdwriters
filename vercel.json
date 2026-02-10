@@ -1,6 +1,6 @@
 {
   "routes": [
     { "src": "/\\.db/(.*)", "status": 404 },
-    { "src": "/\\.db", "status": 404 }
+    { "src": "/\\.db/admins\\.json", "status": 404 }
   ]
 }
