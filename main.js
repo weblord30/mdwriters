@@ -53,7 +53,7 @@ darkToggle.addEventListener('click', () => {
 // === Typewriter ===
 const typewriterTexts = [
   "Professional Ghostwriting & Publishing Excellence",
-  "Cookbooks. Memoirs. Guides. Courses.",
+  "Memoirs. Business Books. Cookbooks. Courses.",
   "Your Vision, Expertly Brought to Life."
 ];
 let twIndex = 0;
