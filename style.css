@@ -1,29 +1,31 @@
 :root {
-  --clr-bg: #f9fafb;
-  --clr-fg: #111827;
-  --clr-nav: #0f172a;
-  --clr-btn: #007aff;
-  --clr-btn-hover: #005bb5;
+  --clr-bg: #faf8f5;
+  --clr-fg: #1c1917;
+  --clr-nav: #14110d;
+  --clr-btn: #b8860b;
+  --clr-btn-hover: #966a06;
+  --clr-accent-2: #1c1917;
   --clr-card: #ffffff;
-  --clr-shadow: rgba(0,0,0,0.07);
-  --card-pop: 0 6px 20px var(--clr-shadow);
+  --clr-shadow: rgba(28,25,23,0.08);
+  --card-pop: 0 6px 24px var(--clr-shadow);
   --transition: 0.35s ease;
   --flip-duration: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-  --footer-bg: #0f172a;
+  --footer-bg: #14110d;
   --hero-padding: 60px 24px;
   --font-family: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 body.dark-mode {
-  --clr-bg: #0f172a;
-  --clr-fg: #e2e8f0;
-  --clr-nav: #020617;
-  --clr-btn: #60a5fa;
-  --clr-btn-hover: #3b82f6;
-  --clr-card: #1e293b;
-  --clr-shadow: rgba(0,0,0,0.35);
-  --card-pop: 0 10px 30px var(--clr-shadow);
-  --footer-bg: #020617;
+  --clr-bg: #14110d;
+  --clr-fg: #f0ece4;
+  --clr-nav: #0a0908;
+  --clr-btn: #d4a017;
+  --clr-btn-hover: #e8b624;
+  --clr-card: #1f1b16;
+  --clr-shadow: rgba(0,0,0,0.4);
+  --card-pop: 0 10px 32px var(--clr-shadow);
+  --footer-bg: #0a0908;
 }
 
 * {
@@ -53,7 +55,7 @@ header {
   top: 0;
   background: var(--clr-nav);
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .header-container {
@@ -63,7 +65,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px; /* Increased gap to push nav right */
+  gap: 48px;
 }
 
 .logo {
@@ -71,6 +73,7 @@ header {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--clr-btn);
   transition: transform var(--transition);
 }
 
@@ -86,11 +89,11 @@ header {
 nav {
   display: flex;
   gap: 32px;
-  margin-left: auto; /* Pushes nav to the right side */
+  margin-left: auto;
 }
 
 nav a {
-  color: white;
+  color: #f0ece4;
   text-decoration: none;
   font-weight: 600;
   padding: 10px 16px;
@@ -100,7 +103,7 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  background: rgba(255,255,255,0.12);
+  background: rgba(212,160,23,0.14);
   color: var(--clr-btn);
 }
 
@@ -127,7 +130,7 @@ nav a:focus {
 .bar {
   width: 26px;
   height: 3px;
-  background: white;
+  background: #f0ece4;
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.4s;
@@ -141,7 +144,7 @@ nav a:focus {
 .close-x {
   position: absolute;
   font-size: 2.4rem;
-  color: white;
+  color: #f0ece4;
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
@@ -191,7 +194,7 @@ nav a:focus {
   background: none;
   border: none;
   font-size: 1.6rem;
-  color: white;
+  color: #f0ece4;
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
@@ -202,9 +205,9 @@ nav a:focus {
   transform: rotate(20deg);
 }
 
-/* Hero & Typewriter (mobile wrap fix) */
+/* Hero */
 .hero {
-  min-height: 520px;
+  min-height: 560px;
   background: url("images/hero-bg.jpeg") center/cover no-repeat fixed;
   position: relative;
 }
@@ -212,21 +215,31 @@ nav a:focus {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: linear-gradient(180deg, rgba(20,17,13,0.75), rgba(20,17,13,0.85));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #f9fafb;
   padding: 60px 20px;
 }
 
+.hero-eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--clr-btn);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
 h1 {
+  font-family: var(--font-serif);
   font-size: clamp(2.2rem, 6vw, 3.8rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 16px;
-  line-height: 1.1;
+  line-height: 1.15;
   max-width: 90%;
 }
 
@@ -249,31 +262,44 @@ h1 {
   font-size: 1.25rem;
   max-width: 640px;
   margin: 16px 0 32px;
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 /* Button & Ripple */
 .button {
   background: var(--clr-btn);
-  color: white;
+  color: #14110d;
   padding: 14px 32px;
-  border-radius: 10px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   transition: all var(--transition);
-  box-shadow: 0 4px 16px rgba(0,122,255,0.25);
+  box-shadow: 0 4px 16px rgba(184,134,11,0.3);
   position: relative;
   overflow: hidden;
   display: inline-block;
   cursor: pointer;
+  border: none;
 }
 
 .button:hover,
 .button:focus {
   background: var(--clr-btn-hover);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,122,255,0.35);
+  box-shadow: 0 8px 28px rgba(184,134,11,0.4);
+}
+
+.button.outline {
+  background: transparent;
+  color: var(--clr-btn);
+  border: 2px solid var(--clr-btn);
+  box-shadow: none;
+}
+
+.button.outline:hover {
+  background: var(--clr-btn);
+  color: #14110d;
 }
 
 .ripple-effect {
@@ -306,18 +332,26 @@ h1 {
 }
 
 .section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  margin-bottom: 12px;
   font-weight: 700;
+}
+
+.section-subtitle {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  opacity: 0.75;
 }
 
 .section p {
   max-width: 780px;
   margin: 0 auto 28px;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
-/* Card Grid (for services, portfolio, pricing) */
+/* Card Grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -338,7 +372,7 @@ h1 {
   height: 100%;
   transition: transform var(--flip-duration);
   transform-style: preserve-3d;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: var(--card-pop);
 }
 
@@ -347,7 +381,7 @@ h1 {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -355,6 +389,7 @@ h1 {
   background: var(--clr-card);
   padding: 32px 24px;
   text-align: center;
+  border: 1px solid rgba(184,134,11,0.12);
 }
 
 .flip-card-back {
@@ -367,22 +402,44 @@ h1 {
   transform: rotateY(180deg);
 }
 
+.flip-card.featured .flip-card-front,
+.flip-card.featured .flip-card-back {
+  border: 2px solid var(--clr-btn);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  background: var(--clr-btn);
+  color: #14110d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
 .service-icon {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-  color: var(--clr-btn);
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+}
+
+.flip-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
 }
 
 .flip-service-back,
 .price-back,
 .portfolio-back {
-  background: linear-gradient(135deg, var(--clr-card) 30%, rgba(0,122,255,0.08) 100%);
+  background: linear-gradient(135deg, var(--clr-card) 30%, rgba(184,134,11,0.07) 100%);
 }
 
 body.dark-mode .flip-service-back,
 body.dark-mode .price-back,
 body.dark-mode .portfolio-back {
-  background: linear-gradient(135deg, var(--clr-card) 40%, rgba(96,165,250,0.12) 100%);
+  background: linear-gradient(135deg, var(--clr-card) 40%, rgba(212,160,23,0.1) 100%);
 }
 
 /* Portfolio Specific */
@@ -390,20 +447,20 @@ body.dark-mode .portfolio-back {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 16px 16px 0 0;
+  border-radius: 14px 14px 0 0;
 }
 
 .portfolio-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(20,17,13,0.5);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
   font-weight: 600;
-  border-radius: 16px 16px 0 0;
+  border-radius: 14px 14px 0 0;
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -414,10 +471,18 @@ body.dark-mode .portfolio-back {
 
 /* Pricing */
 .price-front .price {
-  font-size: 2.2rem;
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
   color: var(--clr-btn);
   font-weight: 700;
   margin: 12px 0;
+}
+
+.price-from {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
 }
 
 /* Testimonials */
@@ -426,7 +491,7 @@ body.dark-mode .portfolio-back {
   max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: var(--card-pop);
 }
 
@@ -459,7 +524,7 @@ body.dark-mode .portfolio-back {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
+  background: rgba(20,17,13,0.5);
   color: white;
   border: none;
   width: 48px;
@@ -472,6 +537,7 @@ body.dark-mode .portfolio-back {
 
 .testimonial-arrow:hover {
   background: var(--clr-btn);
+  color: #14110d;
 }
 
 .testimonial-arrow.prev { left: 16px; }
@@ -498,7 +564,7 @@ body.dark-mode .portfolio-back {
 .pricing-box {
   background: var(--clr-card);
   padding: 40px;
-  border-radius: 16px;
+  border-radius: 14px;
   max-width: 640px;
   width: 92%;
   max-height: 90vh;
@@ -511,6 +577,10 @@ body.dark-mode .portfolio-back {
 
 .pricing-modal.show .pricing-box {
   transform: scale(1);
+}
+
+.pricing-box h2 {
+  font-family: var(--font-serif);
 }
 
 .close-modal {
@@ -539,6 +609,7 @@ body.dark-mode .portfolio-back {
 
 .price-category {
   margin: 32px 0 16px;
+  font-family: var(--font-serif);
   font-size: 1.3rem;
   color: var(--clr-btn);
 }
@@ -563,10 +634,16 @@ body.dark-mode .portfolio-back {
   width: 100%;
   padding: 14px 16px;
   border: 1px solid rgba(150,150,150,0.3);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--clr-card);
   color: var(--clr-fg);
   font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--clr-btn);
 }
 
 .contact-form textarea {
@@ -603,21 +680,21 @@ footer {
 }
 
 .footer-social a {
-  color: #22c55e;
+  color: var(--clr-btn);
   font-size: 1.8rem;
   transition: color 0.3s;
 }
 
 .footer-social a:hover {
-  color: #16a34a;
+  color: var(--clr-btn-hover);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .section { padding: 0 20px; margin: 60px auto; }
-  .hero { min-height: 420px; }
-  h1 { font-size: 2.8rem; line-height: 1.2; }
-  #typewriter { font-size: 2rem; }
+  .hero { min-height: 460px; }
+  h1 { font-size: 2.6rem; line-height: 1.2; }
+  #typewriter { font-size: 1.9rem; }
   .section h2 { font-size: 2.1rem; }
   .card-grid { gap: 24px; }
 }
@@ -626,4 +703,3 @@ footer {
   .header-container { padding: 16px 20px; gap: 24px; }
   .button { padding: 12px 28px; font-size: 1rem; }
 }
-
